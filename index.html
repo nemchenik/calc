@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DomCraft — Каталог проектов домов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <nav class="top-nav">
+          <a class="logo" href="index.html">DomCraft</a>
+          <a class="btn" href="#consultation">Получить консультацию</a>
+        </nav>
+        <div class="hero__inner">
+          <p class="eyebrow">Проектирование и строительство под ключ</p>
+          <h1>Полноценный каталог современных проектов домов</h1>
+          <p class="hero__text">
+            Выбирайте проект по параметрам, сравнивайте варианты комплектаций, рассчитывайте
+            ориентировочный платеж и оставляйте заявку на консультацию.
+          </p>
+          <div class="hero__stats">
+            <div><strong>6+</strong><span>готовых проектов</span></div>
+            <div><strong>3</strong><span>комплектации на выбор</span></div>
+            <div><strong>4–11 мес.</strong><span>срок строительства</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="filters card">
+        <div class="section-head">
+          <h2>Подбор проекта</h2>
+          <p id="resultsCount"></p>
+        </div>
+
+        <form id="filtersForm" class="filters__grid">
+          <label>Площадь от, м² <input type="number" id="minArea" min="30" max="500" /></label>
+          <label>Площадь до, м² <input type="number" id="maxArea" min="30" max="500" /></label>
+          <label>
+            Спален
+            <select id="bedrooms">
+              <option value="">Любое</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+          <label>
+            Этажей
+            <select id="floors">
+              <option value="">Любое</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+          <label>Максимальный бюджет, ₽ <input type="number" id="maxPrice" min="1000000" step="100000" /></label>
+          <label>
+            Материал
+            <select id="material">
+              <option value="">Любой</option>
+            </select>
+          </label>
+          <label>
+            Стиль
+            <select id="style">
+              <option value="">Любой</option>
+            </select>
+          </label>
+          <label>
+            Сортировка
+            <select id="sortBy">
+              <option value="popular">По популярности</option>
+              <option value="priceAsc">Сначала дешевле</option>
+              <option value="priceDesc">Сначала дороже</option>
+              <option value="areaAsc">Площадь по возрастанию</option>
+              <option value="areaDesc">Площадь по убыванию</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="quick-filters" id="quickFilters"></div>
+
+        <div class="filters__actions">
+          <button id="applyFilters" class="btn btn--primary" type="button">Применить</button>
+          <button id="resetFilters" class="btn" type="button">Сбросить</button>
+        </div>
+      </section>
+
+      <section>
+        <div id="catalog" class="catalog-grid"></div>
+      </section>
+
+      <section class="benefits card">
+        <h2>Почему выбирают DomCraft</h2>
+        <div class="benefits-grid">
+          <article><h3>Точная смета</h3><p>Фиксируем стоимость комплектации и материалы до начала работ.</p></article>
+          <article><h3>Личный архитектор</h3><p>Адаптируем каждый проект под участок и задачи вашей семьи.</p></article>
+          <article><h3>Прозрачные этапы</h3><p>Фото- и видеоотчеты по строительству каждую неделю в личном кабинете.</p></article>
+        </div>
+      </section>
+
+      <section id="consultation" class="consultation card">
+        <div>
+          <h2>Нужна помощь с выбором проекта?</h2>
+          <p>Оставьте контакты — подготовим подборку подходящих домов и смету в течение дня.</p>
+        </div>
+        <form id="consultForm" class="consult-form">
+          <input type="text" id="clientName" placeholder="Ваше имя" required />
+          <input type="tel" id="clientPhone" placeholder="Телефон" required />
+          <button class="btn btn--primary" type="submit">Получить подборку</button>
+        </form>
+        <p id="consultStatus" class="muted"></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 DomCraft. Каталог демонстрационных проектов.</p>
+      </div>
+    </footer>
+
+    <script src="projects.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
